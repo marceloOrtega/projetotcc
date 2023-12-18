@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawPets - Home</title>
+    <link rel="stylesheet" href="../styles/home.css">
+</head>
+<body>
+    <header>
+        <h1>Bem-vindo ao PawPets!</h1>
+    </header>
+    <main>
+        <form id="CarrosselImagem" method="POST">
+            <span class="arrow arrowLeft" style="display: none;"><img src="../assets/arrow-esquerda.png" class="arrows" alt=""></span>
+            <span class="arrow arrowRight"><img src="../assets/arrow-direita.png" class="arrows" alt=""></span>
+        <div id="CarrosselImg">
+            <div class="steps step1 img-zoom">
+                <img src="../assets/cachorro.jpg" alt="">
+            </div>
+            <div class="steps step2 img-zoom">
+                <img src="../assets/gato.jpg" alt="">
+            </div>
+            <div class="steps step3 img-zoom">
+                <img src="../assets/piquirito.jpg" alt="">
+            </div>
+            <div class="steps step4 img-zoom">
+                <img src="../assets/hamster.jpg" alt="">
+            </div>
+        </div>
+        </form>
+    </main>
+    <footer>
+        <button id="btnLogout"><img src="../assets/seta-esquerda.png" id="backlog" alt="arrowbacklog"></button>
+        <a id="info" href="../pages/info.html">SOBRE NÓS</a>
+        <button id="open-modal"><img src="../assets/cachorrooooo-removebg-preview.png" id="cachorrinho" alt=""></button>
+    <div id="fade" class="hide"></div>
+    <div id="modal" class="hide">
+      <div class="modal-header">
+        <div>
+            <button id="close-modal"><img id="cancelar-modal" src="../assets/cancelar.png" alt=""></button>
+        </div>
+        <div>
+            <a class="linkmodal" href="../pages/cadastrarpet.html">Cadastrar Pet</a>
+            <a class="linkmodal" href="../pages/vacinas.html">Vacinas</a>
+        </div>
+      </div>
+      <div class="modal-body">
+        <p>
+        </p>
+    </footer>
+    <script src="../scripts/home.js"></script>
+    <script>
+        document.getElementById("btnLogout").addEventListener("click", function () {
+            window.location.href = "login.html";
+        });
+    </script>
+</body>
+</html>

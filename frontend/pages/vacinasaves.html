@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Vacinas</title>
+    <link rel="stylesheet" href="../styles/vacinasaves.css">
+</head>
+<body>
+    <button id="prev-btn">
+        <img src="../assets/arrow-esquerda.png" class="fas fa-arrow-circle-left arrows">
+    </button>
+    <div id="book" class="book">
+        <div id="p1" class="paper">
+            <div class="front">
+                <div id="f1" class="front-content">
+                    <h1>carteirinha de vacina :)</h1>
+                    <img id="vacina" src="../assets/vaccine.png" alt="">
+                </div>
+            </div>
+            <div class="back">
+                <div id="b1" class="back-content">
+                    <div class="infovacina">
+                        Vacina contra Newcastle: Essa vacina protege contra a doença de Newcastle, uma doença viral altamente contagiosa que afeta aves como galinhas, perus e outras aves domésticas.
+                    </div>
+                    <div class="infovacina">
+                        Vacina contra a Bronquite Infecciosa: Protege contra a bronquite infecciosa das aves, uma doença respiratória que afeta principalmente galinhas.
+                    </div>
+                    <div class="infovacina">
+                        Vacina contra a Doença de Marek: Destinada a prevenir a doença de Marek, uma doença viral que afeta aves, especialmente galinhas, causando tumores e problemas neurológicos.
+                    </div>
+                    <div class="infovacina">
+                        Vacina contra a Gumboro (Doença Infecciosa da Bursa): Essa vacina protege contra a doença de Gumboro, uma doença viral que afeta os linfócitos B das aves jovens.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="p2" class="paper">
+            <div class="front">
+                <div id="f2" class="front-content">
+                    <div class="titulodasdoses">
+                        <p class="titulo-doses">Dose única</p>
+                        <p class="titulo-doses p2">Dose dupla</p>
+                    </div>
+                    <div class="checkvacina">
+                        <div class="checkvacina2">
+                            <input type="checkbox">
+                        </div>
+                        <div class="checkvacina2 checkvacina-space">
+                            <input type="checkbox">
+                            <input type="checkbox">
+                        </div>
+                    </div>
+                    <div class="checkvacina">
+                        <div class="checkvacina2">
+                            <input type="checkbox">
+                        </div>
+                        <div class="checkvacina2 checkvacina-space">
+                            <input type="checkbox">
+                            <input type="checkbox">
+                        </div>
+                    </div>
+                    <div class="checkvacina">
+                        <div class="checkvacina2">
+                            <input type="checkbox">
+                        </div>
+                        <div class="checkvacina2 checkvacina-space">
+                            <input type="checkbox">
+                            <input type="checkbox">
+                        </div>
+                    </div>
+                    <div class="checkvacina">
+                        <div class="checkvacina2">
+                            <input type="checkbox">
+                        </div>
+                        <div class="checkvacina2 checkvacina-space">
+                            <input type="checkbox">
+                            <input type="checkbox">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="back">
+                <div id="b2" class="back-content">
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <button id="next-btn">
+        <img src="../assets/arrow-direita.png" class="fas fa-arrow-circle-right arrows">
+    </button>
+    <script src="../scripts/vacinascachorro.js"></script>
+    <script>
+        // Função para salvar o estado dos checkboxes no localStorage
+        function salvarEstadoCheckboxes() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach((checkbox, index) => {
+                localStorage.setItem(`checkbox${index}`, checkbox.checked);
+            });
+        }
+
+        // Função para restaurar o estado dos checkboxes do localStorage
+        function restaurarEstadoCheckboxes() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach((checkbox, index) => {
+                const isChecked = localStorage.getItem(`checkbox${index}`);
+                if (isChecked !== null) {
+                    checkbox.checked = isChecked === 'true';
+                }
+            });
+        }
+
+        // Chamar a função para restaurar o estado dos checkboxes ao carregar a página
+        document.addEventListener('DOMContentLoaded', restaurarEstadoCheckboxes);
+
+        // Event listener para salvar o estado dos checkboxes quando forem alterados
+        const todosCheckboxes = document.querySelectorAll('input[type="checkbox"]');
+        todosCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', salvarEstadoCheckboxes);
+        });
+    </script>
+</body>
+</html>
